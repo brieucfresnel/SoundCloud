@@ -14,12 +14,25 @@
 Route::get('/', 'LandingController@index');
 Route::get('/about/{id}', 'LandingController@about');
 
-// middleware->auth(): La route existe seulement si l'utilisateur est connecté 
-Route::get('/chanson/nouvelle', 'LandingController@newtrack')->middleware('auth');
+// middleware->auth(): La route existe seulement si l'utilisateur est connecté
+Route::get('/chanson/nouvelle', 'LandingController@newTrack')->middleware('auth');
+Route::post('/chanson/upload', 'LandingController@uploadTrack')->middleware('auth');
 
 // User routes
 Route::get('/utilisateur/{id}', 'LandingController@utilisateur')->where('id', '[0-9]+');
+Route::get('/suivre/{id}', 'LandingController@follow')->where('id', '[0-9]+')->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*
+* TODO
+* accueil,
+* profil
+* follow user,
+* search for user
+* like a track,
+* nb of <3, nb of follows
+* list of followers
+* 404
+* +more
+*/

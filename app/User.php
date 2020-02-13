@@ -34,4 +34,13 @@ class User extends Authenticatable
         return $this->hasMany('App\Chanson', 'utilisateur_id');
     }
 
+    public function getFollowing() {
+        return $this->belongsToMany("App\User", "connexion", "follower_id", "followed_id");
+        // SELECT * from users JOIN connexion ON followed_id=users.id WHERE follower_id=$this->id
+    }
+
+    public function getFollowers() {
+        return $this->belongsToMany('App\User', "connexion", "followed_id", "follower_id");
+    }
+
 }

@@ -9,5 +9,6 @@ class Chanson extends Model  {
 
     public function utilisateur() { // Getting the user that posted the track
         return $this->belongsTo("App\User", "utilisateur_id");
+        // Select * FROM user WHERE id=$this->utilisateur_id
     }
 }

@@ -9,13 +9,13 @@
     <title>{{ config('app.name') }}</title>
     <!-- Styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <nav class="main-navbar container">
     <div class="navbar-brand">
-        <img id="logo" src="{{ asset('icons/play-button-white.png') }}" alt=""/>
         <a href="/">{{ config('app.name') }}</a>
     </div>
 
@@ -25,14 +25,17 @@
             <li><a href="{{ route('login') }}">Connexion</a></li>
             <li><a href="{{ route('register') }}">Inscription</a></li>
         @else
-            <li>
-                <a href="{{ route('logout') }}"
+            <li><a href="#"><img class="icon" src="{{ asset('icons/search-yellow.png') }}" alt="search"/></a></li>
+            <li><a href="/utilisateur/{{ Auth::id() }}">Profile</a></li>
+            <li><a href="{{ route('logout') }}"
                    onclick="
                        event.preventDefault();
                        document.getElementById('logout-form').submit();">
-                       Déconnexion
-                </a>
-            </li>
+                       Sign Out
+            </a></li>
+            <li><a class="cta" href="/chanson/nouvelle">Upload</a></li>
+
+
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
@@ -43,6 +46,10 @@
 <div id="main" class="container">
     @yield('content')
 </div>
+
+<footer class="container">
+    footer
+</footer>
 <!-- Scripts -->
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/divers.js') }}"></script>

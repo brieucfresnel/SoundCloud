@@ -1,9 +1,18 @@
+/*
+    yellow: FAFF00
+
+*/
+
 * {
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
 }
 
 body {
-    font-size: 62.5%;
     margin: 0;
 }
 
@@ -29,29 +38,14 @@ p, li, a, span, div {
     height: 30px;
 }
 
-.container {
-    padding: 0 10%;
-}
-
-.page-title {
-    margin: 3rem 0 1rem 0;
-}
-
-.page-subtitle {
-    margin: 0 0 3rem 0;
-}
-
-.icon {
-    width: 25px;
-    height: 25px;
-}
+/* NAVBAR */
 
 .main-navbar {
-    background: #252525;
+    background: #000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #fff;
+    color: #FAFF00;
     padding: 1rem 10%;
 }
 
@@ -61,20 +55,27 @@ p, li, a, span, div {
 }
 
 .navbar-brand a {
-    font-size: 1.2rem;
     margin-left: 1rem;
-    color: #fff;
+    color: #FAFF00;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 2.4rem;
 }
 
 .navigation {
     display: flex;
+    align-items: stretch;
     list-style: none;
     padding: 0;
 }
 
+.navigation .icon {
+    width: 20px;
+    height: 20px;
+}
+
 .navigation li {
-    margin-right: 1rem;
+    margin-right: 2rem;
 }
 
 .navigation li:last-child {
@@ -83,41 +84,65 @@ p, li, a, span, div {
 
 .navigation a {
     font-size: 1rem;
-    color: #fff;
+    color: #FAFF00;
     text-decoration: none;
+    font-weight: 500;
+}
+
+.navigation .cta {
+    background: #FAFF00;
+    padding: 0.8rem 1.5rem;
+    color: #000;
+    font-weight: bold;
+}
+
+/* TRACKS */
+
+.container {
+    padding: 0 10%;
+}
+
+.tracks-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    grid-gap: 30px;
 }
 
 .track {
-    display: flex;
-    align-items: center;
-    margin-top: 1rem;
-    background: #eee;
-    padding: 1rem;
-    border-radius: 10px;
+    position: relative;
+    margin: 5px;
+    background: #555;
+    padding-bottom: 100%;
+    width: 100%;
 }
 
-.track img {
-    border-radius: 10px;
-    cursor: pointer;
+.track-overlay {
+    display: none;
+    position: absolute;
+    top: 0;right:0;bottom:0;left:0;
+    background: rgba(0, 0, 0,0.5);
 }
 
-.track span, .track a {
-    margin-left: 1rem;
-    font-size: 1.1rem;
-}
-
-.track a {
-    text-decoration: none;
-    color: #000;
+.track-description {
+    text-align: center;
 }
 
 .track-title {
+    font-size: 2.4rem;
+    color: #fff;
     font-weight: bold;
 }
 
 .track-author {
-
+    font-size: 1.6rem;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-weight: normal;
 }
+
+/* AUDIO CONTROLLER */
 
 #audio-player {
     width: 100%;
@@ -125,4 +150,37 @@ p, li, a, span, div {
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 999;
+}
+
+/* NewTrack form */
+
+.form-row {
+    margin-bottom: 1rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+label, input {
+    display: block;
+    font-size: 1.2rem;
+}
+
+label {
+    margin-bottom: .5rem;
+}
+
+input[type="text"] {
+    padding: .5rem;
+}
+
+footer {
+    background: #333;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-top: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
 }
