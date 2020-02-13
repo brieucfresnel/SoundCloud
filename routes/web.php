@@ -15,12 +15,14 @@ Route::get('/', 'LandingController@index');
 Route::get('/about/{id}', 'LandingController@about');
 
 // middleware->auth(): La route existe seulement si l'utilisateur est connecté
-Route::get('/chanson/nouvelle', 'LandingController@newTrack')->middleware('auth');
-Route::post('/chanson/upload', 'LandingController@uploadTrack')->middleware('auth');
+Route::get('/piste/nouvelle', 'LandingController@newTrack')->middleware('auth');
+Route::post('/piste/upload', 'LandingController@uploadTrack')->middleware('auth');
 
 // User routes
 Route::get('/utilisateur/{id}', 'LandingController@utilisateur')->where('id', '[0-9]+');
 Route::get('/suivre/{id}', 'LandingController@follow')->where('id', '[0-9]+')->middleware('auth');
+
+// Tracks routes
 
 Auth::routes();
 

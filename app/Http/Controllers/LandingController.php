@@ -12,7 +12,8 @@ class LandingController extends Controller
     public function index() {
         // Using table model to fetch data
         $tracks = Chanson::all();
-        return view('landing.index', ['tracks' => $tracks]);
+        
+        return view('landing.index', ['popular_tracks' => $tracks, 'recent_tracks' => $tracks]);
     }
 
     public function about() {

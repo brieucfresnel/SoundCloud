@@ -1,5 +1,5 @@
 /*
-    yellow: FAFF00
+    yellow: FFD600
 
 */
 
@@ -14,6 +14,12 @@ html {
 
 body {
     margin: 0;
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 h1 {
@@ -41,12 +47,11 @@ p, li, a, span, div {
 /* NAVBAR */
 
 .main-navbar {
-    background: #000;
+    background: #FFD600;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #FAFF00;
-    padding: 1rem 10%;
+    padding: 0 10%;
 }
 
 .navbar-brand {
@@ -55,8 +60,7 @@ p, li, a, span, div {
 }
 
 .navbar-brand a {
-    margin-left: 1rem;
-    color: #FAFF00;
+    color: #000;
     text-decoration: none;
     font-weight: bold;
     font-size: 2.4rem;
@@ -64,9 +68,14 @@ p, li, a, span, div {
 
 .navigation {
     display: flex;
-    align-items: stretch;
+    align-items: center;
     list-style: none;
-    padding: 0;
+    padding: 1rem 0;
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
 }
 
 .navigation .icon {
@@ -78,21 +87,21 @@ p, li, a, span, div {
     margin-right: 2rem;
 }
 
-.navigation li:last-child {
+.navigation li:nth-child(4) {
     margin-right: 0;
 }
 
 .navigation a {
     font-size: 1rem;
-    color: #FAFF00;
+    color: #000;
     text-decoration: none;
     font-weight: 500;
 }
 
 .navigation .cta {
-    background: #FAFF00;
+    background: #000;
     padding: 0.8rem 1.5rem;
-    color: #000;
+    color: #FFD600;
     font-weight: bold;
 }
 
@@ -103,29 +112,39 @@ p, li, a, span, div {
 }
 
 .tracks-container {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-
-    grid-gap: 30px;
+    grid-auto-rows: 18vw;
+    grid-gap: 2.5rem;
+    align-content: center;
 }
 
 .track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    margin: 5px;
-    background: #555;
-    padding-bottom: 100%;
-    width: 100%;
+    overflow: hidden;
+    border: 1px solid #FFD600;
+}
+
+.track img {
+    position: absolute;
+    top:0;bottom:0;left:0;right:0;
+    z-index: 0;
 }
 
 .track-overlay {
-    display: none;
     position: absolute;
-    top: 0;right:0;bottom:0;left:0;
-    background: rgba(0, 0, 0,0.5);
+    top:0;bottom:0;left:0;right:0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
 }
 
 .track-description {
     text-align: center;
+    z-index: 2;
 }
 
 .track-title {
@@ -150,7 +169,6 @@ p, li, a, span, div {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 999;
 }
 
 /* NewTrack form */
@@ -183,4 +201,39 @@ footer {
     margin-top: 5rem;
     padding-top: 1rem;
     padding-bottom: 4rem;
+}
+
+/* SEARCHBAR */
+
+.searchBar {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin: 5rem 0;
+}
+
+.searchBar .icon {
+    width: 30px;
+    height: 30px;
+}
+
+.searchBar input {
+    display: block;
+    width: 100%;
+    margin-left: 1rem;
+    border: none;
+    border-bottom: 1px solid #FFD600;
+    background: #000;
+    color: #fff;
+}
+
+/* FOOTER */
+
+footer {
+    background: #FFD600;
+    display: flex;
+    align-items: center;
+    padding: 2rem 10%;
+    padding-bottom: 5rem;
+    color: #000;
 }

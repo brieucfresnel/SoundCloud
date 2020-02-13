@@ -25,7 +25,7 @@
             <li><a href="{{ route('login') }}">Connexion</a></li>
             <li><a href="{{ route('register') }}">Inscription</a></li>
         @else
-            <li><a href="#"><img class="icon" src="{{ asset('icons/search-yellow.png') }}" alt="search"/></a></li>
+            <li><a href="#" class="nav-icon"><img class="icon" src="{{ asset('icons/search-black.png') }}" alt="search"/></a></li>
             <li><a href="/utilisateur/{{ Auth::id() }}">Profile</a></li>
             <li><a href="{{ route('logout') }}"
                    onclick="
@@ -47,7 +47,7 @@
     @yield('content')
 </div>
 
-<footer class="container">
+<footer>
     footer
 </footer>
 <!-- Scripts -->
