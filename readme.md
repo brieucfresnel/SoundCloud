@@ -1,5 +1,3 @@
-On cloning:
-
 1. In root directory
    - npm i
    - php artisan migrate
