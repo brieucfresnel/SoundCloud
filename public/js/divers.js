@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    $(".play-button").click(function(e) {
+    $(".track").click(function(e) {
         e.preventDefault();
         let url = $(this).attr('data-file');
 

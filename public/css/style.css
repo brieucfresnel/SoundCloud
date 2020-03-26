@@ -127,6 +127,7 @@ p, li, a, span, div {
     position: relative;
     overflow: hidden;
     border: 1px solid #FFD600;
+    cursor: pointer;
 }
 
 .track img {
