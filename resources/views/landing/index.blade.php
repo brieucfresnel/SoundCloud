@@ -2,14 +2,23 @@
 
 @section('content')
 
-<div>
+    <div class="app-block">
+        <div class="app-block__header">
+            <h2>Featured Tracks</h2>
+        </div>
+        <div class="app-block__content">
+            @include('landing._tracks', array('tracks' => $popular_tracks))
+        </div>
+    </div>
 
-    <h2>Popular Tracks</h2>
-    @include('landing._tracks', array('tracks' => $popular_tracks))
-
-    <h2>Recent Tracks</h2>
-    @include('landing._tracks', array('tracks' => $recent_tracks))
-
-</div>
+    <div class="app-block">
+        <div class="app-block__header">
+            <h2>Popular Tracks</h2>
+        </div>
+        <div class="app-block__content">
+            @include('landing._tracks', array('tracks' => $popular_tracks))
+        </div>
+    </div>  
 
 @endsection
+

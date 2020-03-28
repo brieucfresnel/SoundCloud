@@ -1,15 +1,14 @@
-<div class="tracks-container">
-    @foreach ($tracks as $track)
-        <div class="track" data-file="{{ $track->fichier }}">
-            <img src="{{ asset('img/default_music_bg.png') }}"/>
-            <div class="track-overlay"></div>
-            <div class="track-description">
-                <div class="track-title">{{ $track->nom }}</div>
-                <a href="/utilisateur/{{ $track->utilisateur->id }}" class="track-author">
-                    {{ $track->utilisateur->name }}
-                </a>
-            </div>
 
+@foreach ($tracks as $track)
+    <div class="track" data-file="{{ $track->fichier }}">
+        <img src="{{ asset('img/default_music_bg.png') }}"/>
+        <div class="track__overlay"></div>
+        <div class="track__description">
+            <div class="track__title">{{ $track->nom }}</div>
+            <a class="track__author" href="/utilisateur/{{ $track->utilisateur->id }}">
+                {{ $track->utilisateur->name }}
+            </a>
         </div>
-    @endforeach
-</div>
+
+    </div>
+@endforeach

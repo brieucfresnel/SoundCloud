@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-display: swap;
   /* permet  de mettre une typo attente */
   color: #444;
@@ -63,7 +63,7 @@ body {
   display: none;
 }
 
-.user-nav .icon {
+.user-nav__icon {
   width: 3.5rem;
   height: 3.5rem;
 }
@@ -79,8 +79,9 @@ body {
   }
 
   .user-nav__icon {
-    width: 5.6rem;
-    height: 5.6rem;
+    width: 5.2rem;
+    height: 5.2rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     border-radius: 50% 50%;
   }
 }
@@ -88,6 +89,38 @@ body {
 .sidebar {
   display: none;
   background: #fff;
+  padding: 3rem 5rem 3rem 3rem;
+  box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 8px 8px;
+}
+
+.sidebar__brand a {
+  font-size: 3.6rem;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.sidebar__group {
+  margin-top: 4rem;
+  list-style: none;
+  padding: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.sidebar__group li:first-child {
+  margin-top: 1rem;
+}
+
+.sidebar__link {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: normal;
 }
 
 @media screen and (min-width: 700px) {
@@ -98,7 +131,6 @@ body {
 
 .search-bar {
   width: 100%;
-  margin: 1rem 0;
 }
 
 .search-bar__content {
@@ -106,7 +138,8 @@ body {
   justify-content: space-between;
   align-items: center;
   background: #fff;
-  padding: 1rem;
+  margin-top: 3rem;
+  padding: 0.8rem 1.5rem;
   width: 100%;
 }
 
@@ -119,8 +152,8 @@ body {
 }
 
 .search-bar .icon {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 @media screen and (min-width: 700px) {
@@ -131,8 +164,21 @@ body {
     align-items: center;
   }
 
-  .search-bar__input {
+  .search-bar__content {
+    margin-top: 0;
     border-radius: 6.4rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   }
+}
+
+.app-content {
+  margin-top: 3rem;
+}
+
+.app-block {
+  padding: 3rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 

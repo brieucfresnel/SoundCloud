@@ -9,6 +9,8 @@
     <title>{{ config('app.name') }}</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet"> 
 </head>
 
 <body>
@@ -49,20 +51,20 @@
     <div id="sidebar__nav">
         <ul class="sidebar__group">
             Browse
-            <li>Home</li>
-            <li>New Tracks</li>
-            <li>Top Charts</li>
+            <li><a class="sidebar__link" href="#">Home</a></li>
+            <li><a class="sidebar__link" href="#">New Tracks</a></li>
+            <li><a class="sidebar__link" href="#">Top Charts</a></li>
         </ul>
         <ul class="sidebar__group">
             Library
-            <li>Tracks</li>
-            <li>Playlists</li>
-            <li>Following</li>
+            <li><a class="sidebar__link" href="#">Tracks</a></li>
+            <li><a class="sidebar__link" href="#">Playlists</a></li>
+            <li><a class="sidebar__link" href="#">Following</a></li>
         </ul>
         <ul class="sidebar__group">
             Other
-            <li>Profile</li>
-            <li>Settings</li>
+            <li><a class="sidebar__link" href="#">Profile</a></li>
+            <li><a class="sidebar__link" href="#">Settings</a></li>
         </ul>
     </div>
 </nav>
@@ -99,7 +101,7 @@
         </div>
     </div>
     
-    <div id="main" class="container">
+    <div class="app-content">
         @yield('content')
     </div>
     
