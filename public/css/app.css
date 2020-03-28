@@ -3,6 +3,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -11,11 +15,21 @@ body {
   font-family: "Lato", sans-serif;
   font-display: swap;
   /* permet  de mettre une typo attente */
-  display: flex;
-  flex-direction: column;
   color: #444;
   background-color: #F0F0F0;
   margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    grid-template-columns: 1fr 5fr;
+  }
+
+  main {
+    padding: 5rem;
+  }
 }
 
 .navbar {
@@ -31,6 +45,12 @@ body {
   font-weight: bold;
   color: #000;
   text-decoration: none;
+}
+
+@media screen and (min-width: 700px) {
+  .navbar {
+    display: none;
+  }
 }
 
 .user-nav {
@@ -55,11 +75,19 @@ body {
 @media screen and (min-width: 700px) {
   .user-nav--desktop {
     display: block;
+    margin-left: 3rem;
+  }
+
+  .user-nav__icon {
+    width: 5.6rem;
+    height: 5.6rem;
+    border-radius: 50% 50%;
   }
 }
 
 .sidebar {
   display: none;
+  background: #fff;
 }
 
 @media screen and (min-width: 700px) {
@@ -70,14 +98,16 @@ body {
 
 .search-bar {
   width: 100%;
-  padding: 1rem;
   margin: 1rem 0;
-  background: #fff;
 }
 
 .search-bar__content {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  background: #fff;
+  padding: 1rem;
+  width: 100%;
 }
 
 .search-bar__input {
@@ -94,6 +124,13 @@ body {
 }
 
 @media screen and (min-width: 700px) {
+  .search-bar {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .search-bar__input {
     border-radius: 6.4rem;
   }
