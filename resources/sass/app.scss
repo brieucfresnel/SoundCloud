@@ -5,10 +5,104 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-display: swap;
+  /* permet  de mettre une typo attente */
+  display: flex;
+  flex-direction: column;
+  color: #444;
+  background-color: #F0F0F0;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background-color: #fff;
+
+  &__brand a {
+    font-size: 3.6rem;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+.user-nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+    &__navigation {
+      display: none;
+    }
+
+    .icon {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+
+    &--desktop {
+      display: none;
+    }
+} @media screen and (min-width: 700px) {
+  .user-nav {
+    &--desktop {
+      display: block;
+    }
+  }
+}
+
+.sidebar {
+  display: none;
+} @media screen and (min-width: 700px) {
+  .sidebar {display: block; }
+}
+
+.search-bar {
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: #fff;
+
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    padding: 1rem;
+    color: #888;
+    border: none;
+    border-radius: .8rem;
+    width: 80%;
+  }
+
+  .icon {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .search-bar {
+    &__input {
+      border-radius: 6.4rem;
+    }
+    
+  }
 }
