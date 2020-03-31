@@ -11,4 +11,4 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.sass('resources/sass/app.scss', 'public/css');
+mix.sass('resources/sass/app.scss', 'public/css').js('node_modules/howler/dist/howler.min.js', 'public/js');

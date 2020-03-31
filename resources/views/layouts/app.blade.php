@@ -128,17 +128,38 @@
     </div>
     
     <div class="bot-bar bot-bar--desktop">
-        <div class="bot-bar__track-name">Listening to Unnamed by Various Artist</div>
-        <div class="bot-bar__player">
-            <img class="bot-bar__control-btn" src="" alt="previous"/>
-            <img class="bot-bar__control-btn" src="" alt="play/pause"/>
-            <img class="bot-bar__control-btn" src="" alt="next"/>
+        <!-- <div class="bot-bar__track-name">Listening to Unnamed by Various Artist</div> -->
+        <div class="audio-player">
+            <audio id="audio">
+                <source src="https://thenewcode.com/assets/audio/24-ghosts-III.mp3" type="audio/mp3">
+            </audio>
+
+            <div class="player-controls">
+                <button id="playAudio"></button>
+            
+                <div id="seekObjContainer">
+                    <div id="seekObj">
+                    <div id="percentage"></div>
+                    </div>
+                </div>
+            
+                <p><small id="currentTime">00:00</small></p>
+    
+            </div>
         </div>
+        <!-- 
+            <div class="bot-bar__player">
+                <img class="bot-bar__control-btn" src="{{asset('icons/icon_previous.svg')}}" alt="previous"/>
+                <img class="bot-bar__control-btn" src="{{asset('icons/icon_pause.svg')}}" alt="play/pause"/>
+                <img class="bot-bar__control-btn" src="{{asset('icons/icon_next.svg')}}" alt="next"/>
+            </div>
+         -->
     </div>
 </main>
 
 <!-- Scripts -->
 <script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/howler.min.js') }}"></script>
 <script src="{{ asset('js/divers.js') }}"></script>
 </body>
 </html>

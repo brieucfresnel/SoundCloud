@@ -22,13 +22,14 @@ body {
   grid-template-columns: 1fr;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 720px) {
   body {
     grid-template-columns: 1fr 5fr;
   }
 
   main {
     padding: 5rem;
+    position: relative;
   }
 }
 
@@ -47,7 +48,7 @@ body {
   text-decoration: none;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 720px) {
   .navbar {
     display: none;
   }
@@ -72,7 +73,7 @@ body {
   display: none;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 720px) {
   .user-nav--desktop {
     display: block;
     margin-left: 3rem;
@@ -123,7 +124,7 @@ body {
   font-weight: normal;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 720px) {
   .sidebar {
     display: block;
   }
@@ -156,7 +157,7 @@ body {
   height: 2.5rem;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 720px) {
   .search-bar {
     margin: 0;
     display: flex;
@@ -207,8 +208,90 @@ body {
   flex-wrap: wrap;
 }
 
-.track__img {
+.track__header {
+  position: relative;
   width: 10rem;
   height: 10rem;
+}
+
+.track__header:hover .track__overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.track__img {
+  width: 100%;
+  height: 100%;
+}
+
+.track__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.track__body {
+  margin-top: 1rem;
+  overflow-wrap: wrap;
+}
+
+.track__title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #000;
+  overflow: wrap;
+  margin: 0;
+}
+
+.track__author {
+  font-size: 1.3rem;
+  color: #555;
+  text-decoration: none;
+}
+
+.bot-bar {
+  position: fixed;
+  bottom: 0;
+  padding: 3rem;
+}
+
+.bot-bar--mobile {
+  display: block;
+}
+
+.bot-bar--desktop {
+  display: none;
+}
+
+@media screen and (min-width: 720px) {
+  .bot-bar {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+  }
+
+  .bot-bar__track-name {
+    font-size: 1.6rem;
+  }
+
+  .bot-bar__control-btn {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .bot-bar--mobile {
+    display: none;
+  }
+
+  .bot-bar--desktop {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    background: #fff;
+    width: 100%;
+  }
 }
 
