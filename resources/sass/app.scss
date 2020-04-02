@@ -172,7 +172,7 @@ body {
       border-radius: 6.4rem;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     }
-    
+
   }
 }
 
@@ -322,4 +322,17 @@ body {
     }
 
   }
+}
+
+.player-controls {
+    &__toggle-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    &__toggle-btn-icon {
+        width: 40px;
+        height: 40px;
+    }
 }

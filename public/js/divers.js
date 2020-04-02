@@ -1,17 +1,25 @@
+player = $('#audio');
+let trackUrl = '';
+let trackName = '';
+
 $(document).ready(() => {
+    player[0].src='';
     $(".track__header").click(function(e) {
         e.preventDefault();
-        let url = $(this).attr('data-file');
+        url = $(this).attr('data-file');
+        name = $(this).innerHTML;
+        console.log(name);
 
-        player = $('#audio');
         player[0].src = url;
         player[0].play();
+        console.log(player[0]);
     })
 });
 
-var sound = new Howl({
-  src: ['sound.mp3']
-});
-
-sound.play();
-console.log(sound);
+function toggleAudio() {
+    if(player[0].paused) {
+        player[0].play();
+    } else {
+        player[0].pause();
+    }
+}

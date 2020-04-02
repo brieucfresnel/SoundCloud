@@ -10,7 +10,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -100,11 +100,11 @@
             @endguest
         </div>
     </div>
-    
+
     <div class="app-content">
         @yield('content')
     </div>
-    
+
     <div class="bot-bar bot-bar--mobile">
         <div class="bot-bar__player">
             <img class="bot-bar__control-btn" src="" alt="previous"/>
@@ -126,7 +126,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="bot-bar bot-bar--desktop">
         <!-- <div class="bot-bar__track-name">Listening to Unnamed by Various Artist</div> -->
         <div class="audio-player">
@@ -135,19 +135,13 @@
             </audio>
 
             <div class="player-controls">
-                <button id="playAudio"></button>
-            
-                <div id="seekObjContainer">
-                    <div id="seekObj">
-                    <div id="percentage"></div>
-                    </div>
-                </div>
-            
-                <p><small id="currentTime">00:00</small></p>
-    
+                <button id="playAudio" class="player-controls__toggle-btn" onClick="toggleAudio()">
+                     <img class="player-controls__toggle-btn-icon" src="{{asset('icons/icon_play.svg')}}"/>
+                </button>
+
             </div>
         </div>
-        <!-- 
+        <!--
             <div class="bot-bar__player">
                 <img class="bot-bar__control-btn" src="{{asset('icons/icon_previous.svg')}}" alt="previous"/>
                 <img class="bot-bar__control-btn" src="{{asset('icons/icon_pause.svg')}}" alt="play/pause"/>
