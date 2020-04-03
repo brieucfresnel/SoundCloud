@@ -58,15 +58,45 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .user-nav__navigation {
   display: none;
+  position: absolute;
+  bottom: -6.5rem;
+  right: 0.5rem;
+  list-style: none;
+  padding: none;
+  text-align: right;
+}
+
+.user-nav__navigation--show {
+  display: block;
+}
+
+.user-nav li {
+  margin-top: 1.5rem;
+}
+
+.user-nav__link {
+  background: #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem 1rem;
+  padding-left: 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  color: #000;
+  text-decoration: none;
+  text-align: right;
+  float: right;
+  margin-top: 0.5rem;
 }
 
 .user-nav__icon {
   width: 3.5rem;
   height: 3.5rem;
+  cursor: pointer;
 }
 
 .user-nav--desktop {
@@ -218,6 +248,10 @@ body {
   background: rgba(0, 0, 0, 0.5);
 }
 
+.track__header:hover .track__like-icon {
+  visibility: visible;
+}
+
 .track__img {
   width: 100%;
   height: 100%;
@@ -229,6 +263,17 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+.track__like-icon {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  z-index: 99;
+  visibility: hidden;
+  cursor: pointer;
 }
 
 .track__body {
@@ -304,5 +349,15 @@ body {
 .player-controls__toggle-btn-icon {
   width: 40px;
   height: 40px;
+}
+
+.user-stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 3rem;
 }
 

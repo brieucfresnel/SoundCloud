@@ -20,17 +20,17 @@
         <a href="/">{{ config('app.name') }}</a>
     </div>
     <div class="user-nav user-nav--mobile">
-        <img class="icon" src="{{ asset('icons/icon_user.svg') }}"/>
+        <img class="icon" onClick="toggleUserNav()" src="{{ asset('icons/icon_user.svg') }}"/>
         @guest
-            <ul class="user-nav__navigation">
+            <ul id="user-nav" class="user-nav__navigation">
                 <li><a class="user-nav__link" href="{{ route('login') }}">Log In</a></li>
                 <li><a class="user-nav__link" href="{{ route('register') }}">Register</a></li>
             </ul>
         @else
-            <ul class="user-nav__navigation">
+            <ul id="user-nav" class="user-nav__navigation">
                 <li><a class="user-nav__link" href="{{ route('login') }}">Profile</a></li>
-                <li> {{/* POST .logout-form on click */}}
-                    <a class="user-nav__link" href="{{ route('logout') }}"onclick="
+                <li>
+                    <a class="user-nav__link" href="{{ route('logout') }}" onclick="
                             event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             Sign Out
@@ -77,7 +77,7 @@
         </div>
 
         <div class="user-nav user-nav--desktop">
-            <img class="user-nav__icon" src="{{ asset('icons/icon_user_desktop.svg') }}"/>
+            <img class="user-nav__icon" onClick="toggleUserNav()" src="{{ asset('icons/icon_user_desktop.svg') }}"/>
             @guest
                 <div class="user-nav__navigation">
                     <li><a class="user-nav__link" href="{{ route('login') }}">Log In</a></li>
@@ -85,12 +85,12 @@
                 </div>
             @else
                 <div class="user-nav__navigation">
-                    <li><a class="user-nav__link" href="{{ route('login') }}">Profile</a></li>
-                    <li> {{/* POST .logout-form on click */}}
-                        <a class="user-nav__link" href="{{ route('logout') }}"onclick="
+                    <li><a class="user-nav__link" href="/user/{{ Auth::user()->id }}">Profile</a></li>
+                    <li>
+                        <a class="user-nav__link" href="{{ route('logout') }}" onclick="
                                 event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                                Sign Out
+                                Sign&nbsp;Out
                         </a>
                     </li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

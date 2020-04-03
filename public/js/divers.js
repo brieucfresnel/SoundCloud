@@ -23,3 +23,7 @@ function toggleAudio() {
         player[0].pause();
     }
 }
+
+function toggleUserNav() {
+    $('.user-nav__navigation').toggleClass("user-nav__navigation--show");
+}

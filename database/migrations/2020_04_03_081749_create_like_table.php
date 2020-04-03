@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSuitTable extends Migration
+class CreateLikeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateSuitTable extends Migration
      */
     public function up()
     {
-        Schema::create('suit', function (Blueprint $table) {
+        Schema::create('like', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("suiveur_id");
-            $table->integer("suivi_id");
+            $table->integer("liker_id");
+            $table->integer("liked_id");
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateSuitTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suit');
+        Schema::dropIfExists('like');
     }
 }

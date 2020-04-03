@@ -41,6 +41,11 @@ class User extends Authenticatable
 
     public function getFollowers() {
         return $this->belongsToMany('App\User', "connexion", "followed_id", "follower_id");
+        // SELECT * FROM users JOIN connexion ON followed_id=$this_id WHERE followed_id=users.id
+    }
+
+    public function getLikes() {
+        return $this->belongsToMany('App\User', "like", "liker_id", "liked_id");
     }
 
 }

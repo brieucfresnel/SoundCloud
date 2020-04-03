@@ -20,6 +20,11 @@ class LandingController extends Controller
         return view('landing.about');
     }
 
+    public function profile($id) {
+        $u = User::findOrFail($id);
+        return view('landing.profile', ['user' => $u]);
+    }
+
     public function utilisateur($id) {
         $u = User::findOrFail($id);
         return view('landing.user', ['utilisateur' => $u]);
@@ -53,5 +58,9 @@ class LandingController extends Controller
     public function follow($id) {
         Auth::user()->getFollowing()->toggle($id);
         return back();
+    }
+
+    public function like($id) {
+        
     }
 }
