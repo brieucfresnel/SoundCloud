@@ -11,22 +11,25 @@
 |
 */
 
+// Main pages routes
 Route::get('/', 'LandingController@index');
 Route::get('/about/{id}', 'LandingController@about');
-Route::get('/user/{id}', 'LandingController@profile');
-
-// middleware->auth(): La route existe seulement si l'utilisateur est connecté
-Route::get('/track/new', 'LandingController@newTrack')->middleware('auth');
-Route::post('/track/new', 'LandingController@uploadTrack')->middleware('auth');
-
-// User routes
-Route::get('/utilisateur/{id}', 'LandingController@utilisateur')->where('id', '[0-9]+');
-Route::get('/follow/{id}', 'LandingController@follow')->where('id', '[0-9]+')->middleware('auth');
 
 // Tracks routes
+Route::get('/track/new', 'TrackController@newTrack')->middleware('auth'); // middleware->auth(): La route existe seulement si l'utilisateur est connecté
+Route::post('/track/new', 'TrackController@create')->middleware('auth');
 
-// Like route
-Route::post('/like', 'LandingController@likeTrack')->middleware('auth');
+// User routes
+Route::get('/user/{id}', 'UserController@show')->where('id', '[0-9]+');
+Route::get('/follow/{id}', 'UserController@follow')->where('id', '[0-9]+')->middleware('auth');
+
+// Like routes
+Route::get('/like/{id}', 'TrackController@like')->where('id', '[0-9]+')->middleware('auth');
+
+// Search routes
+Route::get('/search', 'SearchController@index');
+Route::post('/search', 'SearchController@index');
+
 
 Auth::routes();
 
@@ -34,9 +37,7 @@ Auth::routes();
 * TODO
 * accueil,
 * profil
-* follow user,
 * search for user
-* like a track,
 * nb of <3, nb of follows
 * list of followers
 * 404

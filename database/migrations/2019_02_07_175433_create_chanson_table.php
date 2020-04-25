@@ -17,6 +17,7 @@ class CreateChansonTable extends Migration
             $table->increments('id');
             $table->string('nom',255);
             $table->string("fichier", 255);
+            $table->string('image', 255);
             $table->string("style", 255);
             $table->integer("utilisateur_id");
             $table->timestamps();

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -28,24 +29,31 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
-
     public function tracks() {
         return $this->hasMany('App\Chanson', 'utilisateur_id');
     }
 
-    public function getFollowing() {
+    public function following() {
         return $this->belongsToMany("App\User", "connexion", "follower_id", "followed_id");
-        // SELECT * from users JOIN connexion ON followed_id=users.id WHERE follower_id=$this->id
+        // SELECT * from users JOIN connexion ON follower_id=users.id WHERE follower_id=$this->id
     }
 
-    public function getFollowers() {
+    public function followers() {
         return $this->belongsToMany('App\User', "connexion", "followed_id", "follower_id");
-        // SELECT * FROM users JOIN connexion ON followed_id=$this_id WHERE followed_id=users.id
+        // SELECT * FROM users JOIN connexion ON followed_id=$this_id WHERE follower_id=users.id
     }
 
-    public function getLikes() {
-        return $this->belongsToMany('App\User', "like", "liker_id", "liked_id");
+    public function likes() {
+        return $this->belongsToMany('App\Chanson', "likes", "user_id", "track_id")->count();
     }
 
+    public function likesReceived() {
+        $likesCount = 0;
+        $tracks = $this->hasMany('App\Chanson', 'utilisateur_id');
+        foreach($tracks as $track) {
+            $likesCount += $track->likes()->count();
+        }
+        return $likesCount;
+
+    }
 }

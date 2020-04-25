@@ -3,6 +3,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 
+
 class Chanson extends Model  {
     // Set name of table linked to this model
     protected $table = 'chanson';
@@ -11,4 +12,8 @@ class Chanson extends Model  {
         return $this->belongsTo("App\User", "utilisateur_id");
         // Select * FROM user WHERE id=$this->utilisateur_id
     }
+
+    public function likes() {
+        return $this->belongsToMany('App\User', "likes", "track_id", "user_id");
+     }
 }

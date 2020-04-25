@@ -45,36 +45,41 @@
 </nav>
 
 <nav class="sidebar">
-    <div class="sidebar__brand">
-        <a href="/">{{ config('app.name') }}</a>
-    </div>
-    <div id="sidebar__nav">
-        <ul class="sidebar__group">
-            Browse
-            <li><a class="sidebar__link" href="#">Home</a></li>
-            <li><a class="sidebar__link" href="#">New Tracks</a></li>
-            <li><a class="sidebar__link" href="#">Top Charts</a></li>
-        </ul>
-        <ul class="sidebar__group">
-            Library
-            <li><a class="sidebar__link" href="#">Tracks</a></li>
-            <li><a class="sidebar__link" href="#">Playlists</a></li>
-            <li><a class="sidebar__link" href="#">Following</a></li>
-        </ul>
-        <ul class="sidebar__group">
-            Other
-            <li><a class="sidebar__link" href="#">Profile</a></li>
-            <li><a class="sidebar__link" href="#">Settings</a></li>
-        </ul>
+    <div class="sidebar__container">
+        <div class="sidebar__brand">
+            <a href="/">{{ config('app.name') }}</a>
+        </div>
+        <div id="sidebar__nav">
+            <ul class="sidebar__group">
+                Browse
+                <li><a class="sidebar__link" href="/">Home</a></li>
+                <li><a class="sidebar__link" href="#">New Tracks</a></li>
+                <li><a class="sidebar__link" href="#">Top Charts</a></li>
+            </ul>
+            <ul class="sidebar__group">
+                Library
+                <li><a class="sidebar__link" href="#">Tracks</a></li>
+                <li><a class="sidebar__link" href="#">Playlists</a></li>
+                <li><a class="sidebar__link" href="#">Following</a></li>
+                <li><a class="sidebar__link" href="/track/new">Upload Track</a></li>
+
+            </ul>
+            <ul class="sidebar__group">
+                Other
+                <li><a class="sidebar__link" href="#">Profile</a></li>
+                <li><a class="sidebar__link" href="#">Settings</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 
 <main>
     <div class="search-bar">
-        <div class="search-bar__content">
-            <input type="text" class="search-bar__input" name="search-bar__input" placeholder="Search for artists, tracks..."/>
+        <form action="/search" method="post" class="search-bar__content">
+            @csrf
+            <input type="text" class="search-bar__input" name="search_content" placeholder="Search for artists, tracks..."/>
             <img class="icon" src="{{asset('icons/search-black.png')}}" alt="search"/>
-        </div>
+        </form>
 
         <div class="user-nav user-nav--desktop">
             <img class="user-nav__icon" onClick="toggleUserNav()" src="{{ asset('icons/icon_user_desktop.svg') }}"/>
@@ -128,17 +133,16 @@
     </div>
 
     <div class="bot-bar bot-bar--desktop">
-        <!-- <div class="bot-bar__track-name">Listening to Unnamed by Various Artist</div> -->
         <div class="audio-player">
             <audio id="audio">
-                <source src="https://thenewcode.com/assets/audio/24-ghosts-III.mp3" type="audio/mp3">
+                <source src="" type="audio/mp3">
             </audio>
 
             <div class="player-controls">
+                <div id="currentTrackName" class="bot-bar__track-name">Click on a track to play it</div>
                 <button id="playAudio" class="player-controls__toggle-btn" onClick="toggleAudio()">
-                     <img class="player-controls__toggle-btn-icon" src="{{asset('icons/icon_play.svg')}}"/>
+                     <img id="playerMainBtnImg" class="player-controls__toggle-btn-icon" src="{{asset('icons/icon_play.svg')}}"/>
                 </button>
-
             </div>
         </div>
         <!--
