@@ -54,6 +54,9 @@ class User extends Authenticatable
             $likesCount += $track->likes()->count();
         }
         return $likesCount;
+    }
 
+    public function playlists() {
+        return $this->hasMany('App\Playlist', 'utilisateur_id');
     }
 }

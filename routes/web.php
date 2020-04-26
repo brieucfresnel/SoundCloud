@@ -19,6 +19,11 @@ Route::get('/about/{id}', 'LandingController@about');
 Route::get('/track/new', 'TrackController@newTrack')->middleware('auth'); // middleware->auth(): La route existe seulement si l'utilisateur est connecté
 Route::post('/track/new', 'TrackController@create')->middleware('auth');
 
+// Playlist routes
+Route::post('/playlist/new', 'PlaylistController@create')->middleware('auth');
+Route::get('/playlist/{id}', 'PlaylistController@show')->where('id', '[0-9]+');
+Route::get('/playlist/add/{playlistID}/{trackID}', 'PlaylistController@addTrack')->where('id', '[0-9]+');
+
 // User routes
 Route::get('/user/{id}', 'UserController@show')->where('id', '[0-9]+');
 Route::get('/follow/{id}', 'UserController@follow')->where('id', '[0-9]+')->middleware('auth');
@@ -30,16 +35,8 @@ Route::get('/like/{id}', 'TrackController@like')->where('id', '[0-9]+')->middlew
 Route::get('/search', 'SearchController@index');
 Route::post('/search', 'SearchController@index');
 
+// AJAX routes
+Route::get('/setCurrentTrack', 'LandingController@setCurrentTrack');
+Route::post('/setCurrentTrack', 'LandingController@setCurrentTrack');
 
 Auth::routes();
-
-/*
-* TODO
-* accueil,
-* profil
-* search for user
-* nb of <3, nb of follows
-* list of followers
-* 404
-* +more
-*/

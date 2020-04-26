@@ -128,6 +128,7 @@ body {
   box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 8px 8px;
   min-height: 100vh;
+  min-width: 20rem;
 }
 
 .sidebar__container {
@@ -247,6 +248,12 @@ body {
   flex-wrap: wrap;
 }
 
+.app-block__playlist-name {
+  font-size: 2rem;
+  margin: 1rem 0;
+  color: #333;
+}
+
 .track {
   margin-bottom: 2rem;
 }
@@ -316,6 +323,11 @@ body {
   right: 0;
   box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.25);
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background: #fff;
+  width: 100%;
 }
 
 .bot-bar__track-name {
@@ -331,14 +343,6 @@ body {
   display: none;
 }
 
-.bot-bar--desktop {
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
-  background: #fff;
-  width: 100%;
-}
-
 .audio-player {
   width: 100%;
 }
@@ -349,16 +353,81 @@ body {
   align-items: center;
 }
 
-.player-controls__toggle-btn {
+.player-controls__btn {
   background: none;
   border: none;
   cursor: pointer;
-  float: right;
 }
 
-.player-controls__toggle-btn-icon {
+.player-controls__playlist-btn img {
+  position: relative;
+  top: 3px;
+  width: 35px;
+  height: 35px;
+}
+
+.player-controls__btn-icon {
   width: 40px;
   height: 40px;
+}
+
+.playlist-controls {
+  position: relative;
+}
+
+.playlist-controls__menu {
+  display: none;
+  position: absolute;
+  bottom: 5rem;
+  background: #fff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  border-radius: 8px;
+  font-size: 1.4rem;
+}
+
+.playlist-controls__menu--show {
+  display: block;
+}
+
+.playlist-controls__title {
+  margin-bottom: 0.5rem;
+}
+
+.playlist-controls__label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.playlist-controls__input {
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}
+
+.playlist-controls__pl-name {
+  display: block;
+  padding: 0.8rem 1rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  color: #000;
+}
+
+.playlist-controls__pl-name:hover {
+  background: #000;
+  color: #fff;
+}
+
+.playlist-controls__btn {
+  background: none;
+  border-radius: 4px;
+  border: none;
+  margin-top: 1rem;
+  padding: 0;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .user-stats {
@@ -396,9 +465,12 @@ body {
 .user-stats__follow-btn {
   display: block;
   background: #ddd;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
   text-decoration: none;
   color: #000;
+  border-radius: 4px;
+  font-size: 1.4rem;
 }
 
 .user-stats__stats {
@@ -422,6 +494,18 @@ body {
 
 .user-stats__stat {
   font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1100px) {
+  .user-stats {
+    flex-direction: column;
+    align-items: space-between;
+  }
+
+  .user-stats__stats {
+    margin-top: 3rem;
+    margin-left: 0;
+  }
 }
 
 .form__row {

@@ -132,27 +132,7 @@
         </div>
     </div>
 
-    <div class="bot-bar bot-bar--desktop">
-        <div class="audio-player">
-            <audio id="audio">
-                <source src="" type="audio/mp3">
-            </audio>
-
-            <div class="player-controls">
-                <div id="currentTrackName" class="bot-bar__track-name">Click on a track to play it</div>
-                <button id="playAudio" class="player-controls__toggle-btn" onClick="toggleAudio()">
-                     <img id="playerMainBtnImg" class="player-controls__toggle-btn-icon" src="{{asset('icons/icon_play.svg')}}"/>
-                </button>
-            </div>
-        </div>
-        <!--
-            <div class="bot-bar__player">
-                <img class="bot-bar__control-btn" src="{{asset('icons/icon_previous.svg')}}" alt="previous"/>
-                <img class="bot-bar__control-btn" src="{{asset('icons/icon_pause.svg')}}" alt="play/pause"/>
-                <img class="bot-bar__control-btn" src="{{asset('icons/icon_next.svg')}}" alt="next"/>
-            </div>
-         -->
-    </div>
+   @include('layouts.bot-bar');
 </main>
 
 <!-- Scripts -->

@@ -11,6 +11,7 @@ class UserController extends Controller
 {
     public function show($id) {
         $u = User::findOrFail($id);
+        $currentTrack = session('currentTrack');
         return view('users.profile', ['user' => $u]);
     }
 
