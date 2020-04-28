@@ -13,8 +13,17 @@ class TrackController extends Controller
     }
 
     public function like($id) {
-        Chanson::find($id)->likes()->toggle(Auth::user()->id);
-        return back();
+        $track = Chanson::find($id);
+
+        if($track->likes->contains(Auth::user()->id)) {
+            $track->decrement('likesCount');
+        } else {
+            $track->increment('likesCount');    
+        }
+
+        $track->likes()->toggle(Auth::user()->id);
+        
+        return response()->json(['success' => 'successfully liked track using ajax']);
     }
 
     public function create(Request $req) {

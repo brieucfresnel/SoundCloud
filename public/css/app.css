@@ -269,7 +269,7 @@ body {
   background: rgba(0, 0, 0, 0.5);
 }
 
-.track__header:hover .track__like-icon {
+.track__header:hover .track__like {
   visibility: visible;
 }
 
@@ -285,17 +285,32 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
+  border-radius: 8px;
 }
 
-.track__like-icon {
+.track__like {
   position: absolute;
-  bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-decoration: none;
+  bottom: 0.4rem;
   right: 0.5rem;
-  width: 2.5rem;
-  height: 2.5rem;
+  left: 0.5rem;
   z-index: 99;
   visibility: hidden;
   cursor: pointer;
+}
+
+.track__like-count {
+  font-size: 2.2rem;
+  color: #fff;
+}
+
+.track__like-icon {
+  margin-left: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .track__body {

@@ -48,15 +48,24 @@ class User extends Authenticatable
     }
 
     public function likesReceived() {
-        $likesCount = 0;
-        $tracks = $this->hasMany('App\Chanson', 'utilisateur_id');
-        foreach($tracks as $track) {
-            $likesCount += $track->likes()->count();
+        $total = 0;
+        $tracks = $this->hasMany('App\Chanson', 'utilisateur_id')->pluck('likesCount');
+
+        foreach($tracks as $likesCount) {
+            $total += $likesCount;
         }
-        return $likesCount;
+
+        return $total;
     }
 
     public function playlists() {
         return $this->hasMany('App\Playlist', 'utilisateur_id');
+    }
+
+    public function hasLiked($id) {
+        $track = Chanson::find($id);
+        $hasLiked = $track->likes->contains(Auth::user()->id);
+
+        return $hasLiked;
     }
 }

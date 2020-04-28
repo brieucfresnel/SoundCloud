@@ -14,6 +14,9 @@
 // Main pages routes
 Route::get('/', 'LandingController@index');
 Route::get('/about/{id}', 'LandingController@about');
+Route::get('/most-recent', 'LandingController@mostRecent');
+Route::get('/most-popular', 'LandingController@mostPopular');
+
 
 // Tracks routes
 Route::get('/track/new', 'TrackController@newTrack')->middleware('auth'); // middleware->auth(): La route existe seulement si l'utilisateur est connecté

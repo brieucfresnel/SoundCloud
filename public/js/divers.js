@@ -22,8 +22,6 @@ $(document).ready(() => {
         //playlist_id = str[str.length - 2]; 
         //$('#addTrackToPlaylist').attr('href', '/playlist/add/' + playlist_id + "/" + track.id);
 
-        let $trackID = track.id;
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -38,12 +36,31 @@ $(document).ready(() => {
             },
             dataType: 'JSON',
             success: function(data) {
-                console.log(data);
+                $('.playlist-controls__list').load(document.URL +  ' .playlist-controls__list');
             }
         })
-        $('.playlist-controls__list').load(document.URL +  ' .playlist-controls__list');
+    });
 
-    })
+    $('.track__like').click(function(e) {
+        id = $(this).data('id');
+        frontId = $(this).attr('id');
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: '/like/' + id,
+            type: 'GET',
+            dataType: 'JSON',
+            success: function(data) {
+                
+            }
+        })
+        $("#"+frontId).load(" #"+frontId);
+    });
 
     $('.player-controls__playlist-btn').click(() => {
         if( player.attr('src') != undefined ) {
@@ -54,7 +71,7 @@ $(document).ready(() => {
 });
 
 function toggleAudio() {
-    if(player[0].paused && player.attr('src') != '') {
+    if(player[0].paused && player.attr('src') != undefined) {
         player[0].play();
         $('#playerMainBtnImg').attr('src', '/icons/icon_pause.png');
     } else {

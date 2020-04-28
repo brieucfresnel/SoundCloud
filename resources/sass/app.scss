@@ -268,7 +268,7 @@ body {
       .track__overlay {
         background: rgba(0, 0, 0, 0.5);
       }
-      .track__like-icon {
+      .track__like {
         visibility: visible;
       }
     }
@@ -283,16 +283,31 @@ body {
   &__overlay {
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
+    border-radius: 8px;
   }
 
-  &__like-icon {
+  &__like {
     position: absolute;
-    bottom: .5rem; right: .5rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-decoration: none;
+
+    bottom: .4rem; right: .5rem; left: .5rem;
     z-index: 99;
     visibility: hidden;
     cursor: pointer;
+  }
+
+  &__like-count {
+    font-size: 2.2rem;
+    color: #fff;
+  }
+
+  &__like-icon {
+    margin-left: .5rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   &__body {

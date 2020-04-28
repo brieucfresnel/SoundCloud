@@ -20,6 +20,7 @@ class CreateChansonTable extends Migration
             $table->string('image', 255);
             $table->string("style", 255);
             $table->integer("utilisateur_id");
+            $table->integer('likesCount')->default(0);
             $table->timestamps();
         });
     }

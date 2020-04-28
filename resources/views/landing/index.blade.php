@@ -8,7 +8,7 @@
             <div class="app-block__subtitle">Discover recently uploaded tracks</div>
         </div>
         <div class="app-block__content">
-            @include('tracks._tracks', array('tracks' => $popular_tracks))
+            @include('tracks._tracks', array('tracks' => $recent_tracks))
         </div>
     </div>
 
