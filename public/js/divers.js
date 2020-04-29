@@ -1,5 +1,6 @@
  // only this line when included with script tag
-
+ 
+ AOS.init();
 
 player = $('#audio');
 let trackUrl = '';

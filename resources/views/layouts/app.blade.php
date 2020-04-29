@@ -11,6 +11,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet">
+    <!-- AOS animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -108,7 +110,7 @@
 
 <main id="swup" class="transition-left">
 
-    <div class="app-content" >
+    <div class="app-content" data-aos="fade-right">
         @yield('content')
     </div>
 
@@ -142,6 +144,7 @@
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/swup/dist/swup.min.js') }}"></script>
 <script src="{{ asset('js/forms-plugin/dist/SwupFormsPlugin.min.js') }}"></script>
-<script src="{{ asset('js/divers.js') }}"></script>
+<script defer src="{{ asset('js/divers.js') }}"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>
