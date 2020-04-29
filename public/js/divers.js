@@ -1,8 +1,15 @@
+ // only this line when included with script tag
+
+
 player = $('#audio');
 let trackUrl = '';
 let trackName = '';
+swup = new Swup({
+    plugins: [new SwupFormsPlugin()]
+});
 
 $(document).ready(() => {
+    
     $(".track__overlay").click(function(e) {
         e.preventDefault();
 

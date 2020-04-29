@@ -1,4 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);body {
+@import url(https://fonts.googleapis.com/css?family=Nunito);.transition-left {
+  transition: 0.4s;
+  transform: translateX(0);
+}
+
+html.is-animating .transition-left {
+  transform: translateX(-80vw);
+}
+
+body {
   padding-bottom: 5rem;
 }
 
@@ -33,6 +42,7 @@ body {
 
   main {
     padding: 5rem;
+    padding-top: 0;
     position: relative;
   }
 }
@@ -63,6 +73,7 @@ body {
   display: flex;
   align-items: center;
   position: relative;
+  z-index: 1;
 }
 
 .user-nav__navigation {
@@ -129,6 +140,7 @@ body {
   border-radius: 0px 0px 8px 8px;
   min-height: 100vh;
   min-width: 20rem;
+  z-index: 1;
 }
 
 .sidebar__container {
@@ -170,10 +182,6 @@ body {
   }
 }
 
-.search-bar {
-  width: 100%;
-}
-
 .search-bar__content {
   display: flex;
   justify-content: space-between;
@@ -199,7 +207,7 @@ body {
 
 @media screen and (min-width: 720px) {
   .search-bar {
-    margin: 0;
+    margin: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;

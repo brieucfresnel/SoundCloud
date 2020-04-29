@@ -73,40 +73,42 @@
     </div>
 </nav>
 
-<main>
-    <div class="search-bar">
-        <form action="/search" method="post" class="search-bar__content">
-            @csrf
-            <input type="text" class="search-bar__input" name="search_content" placeholder="Search for artists, tracks..."/>
-            <img class="icon" src="{{asset('icons/search-black.png')}}" alt="search"/>
-        </form>
+<div>
 
-        <div class="user-nav user-nav--desktop">
-            <img class="user-nav__icon" onClick="toggleUserNav()" src="{{ asset('icons/icon_user_desktop.svg') }}"/>
-            @guest
-                <div class="user-nav__navigation">
-                    <li><a class="user-nav__link" href="{{ route('login') }}">Log In</a></li>
-                    <li><a class="user-nav__link" href="{{ route('register') }}">Register</a></li>
-                </div>
-            @else
-                <div class="user-nav__navigation">
-                    <li><a class="user-nav__link" href="/user/{{ Auth::user()->id }}">Profile</a></li>
-                    <li>
-                        <a class="user-nav__link" href="{{ route('logout') }}" onclick="
-                                event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                Sign&nbsp;Out
-                        </a>
-                    </li>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </div>
-            @endguest
-        </div>
+<div class="search-bar">
+    <form action="/search" method="post" class="search-bar__content">
+        @csrf
+        <input type="text" class="search-bar__input" name="search_content" placeholder="Search for artists, tracks..."/>
+        <img class="icon" src="{{asset('icons/search-black.png')}}" alt="search"/>
+    </form>
+    <div class="user-nav user-nav--desktop">
+        <img class="user-nav__icon" onClick="toggleUserNav()" src="{{ asset('icons/icon_user_desktop.svg') }}"/>
+        @guest
+            <div class="user-nav__navigation">
+                <li><a class="user-nav__link" href="{{ route('login') }}">Log In</a></li>
+                <li><a class="user-nav__link" href="{{ route('register') }}">Register</a></li>
+            </div>
+        @else
+            <div class="user-nav__navigation">
+                <li><a class="user-nav__link" href="/user/{{ Auth::user()->id }}">Profile</a></li>
+                <li>
+                    <a class="user-nav__link" href="{{ route('logout') }}" onclick="
+                            event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            Sign&nbsp;Out
+                    </a>
+                </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </div>
+        @endguest
     </div>
+</div>
 
-    <div class="app-content">
+<main id="swup" class="transition-left">
+
+    <div class="app-content" >
         @yield('content')
     </div>
 
@@ -131,13 +133,16 @@
             </div>
         </div>
     </div>
-
-   @include('layouts.bot-bar');
 </main>
+</div>
+
+@include('layouts.bot-bar');
 
 <!-- Scripts -->
+<script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
+<script src="./public/js/SwupFormsPlugin.js"></script>
 <script src="{{ asset('js/jquery.js') }}"></script>
-<script src="{{ asset('js/howler.min.js') }}"></script>
+
 <script src="{{ asset('js/divers.js') }}"></script>
 </body>
 </html>
