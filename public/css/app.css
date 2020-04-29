@@ -1,11 +1,18 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);.transition-left {
-  transition: 0.4s;
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+/* .transition-left {
+  transition: 0.5s;
   transform: translateX(0);
+  opacity: 1;
 }
 
 html.is-animating .transition-left {
   transform: translateX(-80vw);
+  opacity: 0;
 }
+
+html.is-leaving .transition-left{
+  opacity: 0;
+} */
 
 body {
   padding-bottom: 5rem;
@@ -29,7 +36,7 @@ body {
   font-display: swap;
   /* permet  de mettre une typo attente */
   color: #444;
-  background-color: #F0F0F0;
+  background-color: rgba(34, 16, 100, 0.93);
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;
@@ -134,7 +141,7 @@ body {
 
 .sidebar {
   display: none;
-  background: #fff;
+  background: #150749;
   padding: 3rem 5rem 3rem 3rem;
   box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 8px 8px;
@@ -150,7 +157,7 @@ body {
 .sidebar__brand a {
   font-size: 3.6rem;
   font-weight: bold;
-  color: #000;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -160,7 +167,7 @@ body {
   padding: 0;
   font-size: 2rem;
   font-weight: bold;
-  color: #000;
+  color: #fff;
 }
 
 .sidebar__group li:first-child {
@@ -171,7 +178,7 @@ body {
   display: block;
   margin-top: 1rem;
   font-size: 1.4rem;
-  color: #333;
+  color: #ECECEE;
   text-decoration: none;
   font-weight: normal;
 }
@@ -186,7 +193,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
+  background: #150749;
   margin-top: 3rem;
   padding: 0.8rem 1.5rem;
   width: 100%;
@@ -194,7 +201,8 @@ body {
 
 .search-bar__input {
   padding: 1rem;
-  color: #888;
+  background: #150749;
+  color: #CAC7C7;
   border: none;
   border-radius: 0.8rem;
   width: 80%;
@@ -226,9 +234,10 @@ body {
 
 .app-block {
   padding: 3rem;
-  background: #fff;
+  background: #150749;
   border-radius: 8px;
-  box-shadow: 0px 2px 4px rgba(100, 68, 68, 0.25);
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
   margin-bottom: 3rem;
 }
 
@@ -240,12 +249,12 @@ body {
   margin: 0;
   font-weight: bold;
   font-size: 3.2rem;
-  color: #000;
+  color: #fff
 }
 
 .app-block__subtitle {
   font-size: 1.6rem;
-  color: #777;
+  color: #ccc;
 }
 
 .app-block__content {
@@ -259,7 +268,7 @@ body {
 .app-block__playlist-name {
   font-size: 2rem;
   margin: 1rem 0;
-  color: #333;
+  color: rgb(233, 232, 232);
 }
 
 .track {
@@ -274,7 +283,7 @@ body {
 }
 
 .track__header:hover .track__overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(245, 156, 56, 0.59);;
 }
 
 .track__header:hover .track__like {
@@ -329,14 +338,14 @@ body {
 .track__title {
   font-size: 1.6rem;
   font-weight: bold;
-  color: #000;
+  color: #fff;
   overflow: wrap;
   margin: 0;
 }
 
 .track__author {
   font-size: 1.3rem;
-  color: #555;
+  color: #ccc;
   text-decoration: none;
 }
 
@@ -344,17 +353,18 @@ body {
   position: fixed;
   bottom: 0;
   right: 0;
-  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.25);
+  background: #150749;
+  border-top: 4px solid #DF9040;
   z-index: 1;
   display: flex;
   justify-content: center;
   padding: 2rem;
-  background: #fff;
   width: 100%;
 }
 
 .bot-bar__track-name {
   font-size: 1.6rem;
+  color: #aaa;
 }
 
 .bot-bar__control-btn {
@@ -539,11 +549,15 @@ body {
   display: block;
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
+  color: #ccc
 }
 
 .form__input {
   padding: 1rem 1.3rem;
   width: 100%;
+  background-color: rgba(34, 16, 100, 0.93);
+  border:0;
+  color: #ddd;
 }
 
 .form__check-label {
@@ -552,8 +566,8 @@ body {
 
 .form__btn {
   background: none;
-  border: 1px solid #444;
-  color: #444;
+  border: 1px solid #ccc;
+  color: #ccc;
   border-radius: 2px;
   padding: 0.8rem 1.6rem;
   font-size: 1.4rem;
@@ -562,11 +576,12 @@ body {
 
 .form__btn:hover {
   color: #fff;
-  background: #000;
+  background: #DF9040;
+  border:1px solid #DF9040;
 }
 
 .form__link {
-  color: #000;
+  color: #DF9040;
   text-decoration: none;
   font-size: 1.4rem;
 }
@@ -614,7 +629,7 @@ body {
 .user__name {
   text-decoration: none;
   font-size: 1.6rem;
-  color: #000;
+  color: #fff;
   overflow: wrap;
   margin: 0;
 }
