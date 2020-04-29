@@ -4,12 +4,12 @@
 player = $('#audio');
 let trackUrl = '';
 let trackName = '';
-constswup = new Swup({
+
+const swup = new Swup({
     plugins: [new SwupFormsPlugin()]
 });
 
 $(document).ready(() => {
-    
     $(".track__overlay").click(function(e) {
         e.preventDefault();
 
@@ -105,3 +105,4 @@ $('#track-select-button').click( () => {
 $('#track-img-select-button').click( () => {
     $('#track-img-input').click();
 })
+
