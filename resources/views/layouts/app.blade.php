@@ -76,7 +76,7 @@
 <div>
 
 <div class="search-bar">
-    <form action="/search" method="post" class="search-bar__content">
+    <form action="/search" method="post" class="search-bar__content" data-swup-form>
         @csrf
         <input type="text" class="search-bar__input" name="search_content" placeholder="Search for artists, tracks..."/>
         <img class="icon" src="{{asset('icons/search-black.png')}}" alt="search"/>
@@ -139,10 +139,9 @@
 @include('layouts.bot-bar');
 
 <!-- Scripts -->
-<script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
-<script src="./public/js/SwupFormsPlugin.js"></script>
 <script src="{{ asset('js/jquery.js') }}"></script>
-
+<script src="{{ asset('js/swup/dist/swup.min.js') }}"></script>
+<script src="{{ asset('js/forms-plugin/dist/SwupFormsPlugin.min.js') }}"></script>
 <script src="{{ asset('js/divers.js') }}"></script>
 </body>
 </html>

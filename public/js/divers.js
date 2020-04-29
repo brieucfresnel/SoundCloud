@@ -4,7 +4,7 @@
 player = $('#audio');
 let trackUrl = '';
 let trackName = '';
-swup = new Swup({
+constswup = new Swup({
     plugins: [new SwupFormsPlugin()]
 });
 
